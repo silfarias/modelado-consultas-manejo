@@ -1,9 +1,11 @@
 import express from 'express';
 import morgan from 'morgan';
+import helmet from 'helmet';
 import path from 'node:path';
+import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import 'dotenv/config';
-//import 'ejs'
+import 'ejs';
 
 
 //Routes
@@ -19,13 +21,16 @@ import { allRouter } from './src/routes/all.routes.js';
 import { Author } from './src/models/Author.js';
 import { Genre } from './src/models/Genre.js';
 import { Book } from './src/models/Book.js';
-import { fileRouter } from './src/routes/file.routes.js';
 
 
 const app = express();
 
-
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST']
+  }));
 app.use(morgan('tiny'));
+app.use(helmet());
 app.use(express.json())
 app.use(fileUpload(
     {
@@ -35,14 +40,14 @@ app.use(fileUpload(
         responseOnLimit: "File is too large."
     }
 ));
-    
-//app.use('views', 'ejs')
-//app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.urlencoded({ extended: false }));
+app.set('view engine', 'ejs')
+app.use(express.static('public'));
 
 const port = process.env.PORT || 3000
     
     
-app.use('/', fileRouter)
 app.use('/api/authors', authorsRouter)
 app.use('/api/genres', genresRouter)
 app.use('/api/books', booksRouter)

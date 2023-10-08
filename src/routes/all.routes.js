@@ -1,9 +1,12 @@
 import { Router } from "express";
 const allRouter = Router();
 import { Book } from "../models/Book.js";
+import { home } from "../controllers/views.controller.js";
 import { Author } from "../models/Author.js";
 import { Genre } from "../models/Genre.js";
 
+
+allRouter.get('/', home)
 
 allRouter.post('/newBook', async (req, res) => {
     try {
@@ -23,6 +26,6 @@ allRouter.post('/newBook', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-})
+});
 
 export { allRouter };

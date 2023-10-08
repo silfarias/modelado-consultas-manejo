@@ -6,7 +6,7 @@ booksRouter.get('/', getAllBooks);
 
 booksRouter.get('/:id', getBook);
 
-booksRouter.post("/newBook", newBook);
+booksRouter.post('/', newBook);
 
 booksRouter.put('/:id', updateBook);
 

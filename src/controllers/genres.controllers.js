@@ -15,7 +15,6 @@ export const newGenre = async (req, res) => {
     }
 };
 
-
 // Get all genres
 export const getAllGenres = async (req, res) => {
     try {

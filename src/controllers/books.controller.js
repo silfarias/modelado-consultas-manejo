@@ -6,19 +6,20 @@ import { Genre } from "../models/Genre.js";
 // Create book
 export const newBook = async (req, res) => {
     try {
-      const { title, yearPublication, genreId, authorId } = req.body;
-  
+      const { title, yearPublication, genre, author } = req.body;
+      
       if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send("No files were uploaded");
+        return res.status(400).json({ message: 'No coverPage file was uploaded' })
       }
   
-      // El nombre 'coverPage' debe coincidir con el nombre del campo en el formulario
       const coverPage = req.files.coverPage;
   
-      const genre = await Genre.findById(genreId);
-      const author = await Author.findById(authorId);
+      // El nombre 'coverPageFile' debe coincidir con el nombre del campo en el formulario
+
+      const genreId = await Genre.findById(genre);
+      const authorId = await Author.findById(author);
   
-      if (!genre || !author) {
+      if (!genreId || !authorId) {
         return res.status(404).json({ message: 'Genre or Author not found' });
       }
   
@@ -26,35 +27,30 @@ export const newBook = async (req, res) => {
       const uploadPath = `./public/uploads/${coverPage.name}`;
   
       // Mueve la imagen a la carpeta de destino
-      coverPage.mv(uploadPath, (err) => {
-        if (err) {
-          console.log(err);
-          return res.status(500).json({ message: 'Error when uploading the cover page', error: err });
-        }
-  
-        // Crea un nuevo libro en la base de datos
+      coverPage.mv(uploadPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({ message: 'Error when uploading the cover page', error: err });
+      }
+      try {
         const newBook = new Book({
           title,
           yearPublication,
-          coverPage: uploadPath, // Establece la ruta de la imagen
-          genre,
-          author,
+          coverPage: uploadPath,
+          genre: genreId,
+          author: authorId
         });
-  
-        // Guarda el libro en la base de datos
-        newBook.save((err, savedBook) => {
-          if (err) {
-            console.log(err);
-            return res.status(500).json({ message: 'Error when creating the book', error: err });
-          }
-  
-          res.status(200).json({ message: "Book created successfully", newBook: savedBook });
-        });
-      });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'Error when creating the book', error: error });
-    }
+        const savedBook = await newBook.save();
+        res.status(201).json({ message: "Book created successfully", newBook: savedBook });
+      } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: 'error when creating the book', error });
+      }
+    });
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'error when creating the book', error });
+  }
 };
 
 // Delete book
