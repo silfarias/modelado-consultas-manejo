@@ -8,4 +8,4 @@ const AuthorSchema = new Schema({
     timestamps: true,
 })
 
-export const Author = model("Author", AuthorSchema);
+export const Author = model("author", AuthorSchema);

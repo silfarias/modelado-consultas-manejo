@@ -15,6 +15,7 @@ import { authorsRouter } from './src/routes/authors.routes.js';
 import { booksRouter } from './src/routes/books.routes.js';
 import { genresRouter } from './src/routes/genres.routes.js';
 import { allRouter } from './src/routes/all.routes.js';
+import { fileRouter } from './src/routes/file.routes.js';
 
 
 //Schemas
@@ -51,7 +52,8 @@ const port = process.env.PORT || 3000
 app.use('/api/authors', authorsRouter)
 app.use('/api/genres', genresRouter)
 app.use('/api/books', booksRouter)
-app.use('/', allRouter )
+app.use('/', allRouter)
+app.use('/', fileRouter)
 
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);

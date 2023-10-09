@@ -9,15 +9,16 @@ const BookSchema = new Schema({
     },
     genre: { 
         type: Schema.Types.ObjectId, 
-        ref: "Genero",
+        ref: "genre",
+        required: true
     },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "Autor",
+        ref: "author",
         required: true
     }
 }, {
     timestamps: true
 });
 
-export const Book = model("Book", BookSchema);
+export const Book = model("book", BookSchema);

@@ -1,16 +1,7 @@
-h1 {
-    display: flex;
-    justify-content: center;
-}
-
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 600px;
+    border-radius: 2px;
+    display: block;
+    margin: auto;
+    margin-top: 80px;
 }

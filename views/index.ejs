@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Consultas MongoDB</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li>
-                
-            </li>
-        </ul>
-    </nav>
-    
-    <form action="/api/books/newBook" id="newBook" class="rounded border p-3 form-control" method="POST" enctype="multipart/form-data">
-        <h1 class="mb-3 text-center bg-warning text-light rounded p-2">Adds a New Book</h1>
-        <div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Consultas MongoDB</title>
+    </head>
+    <body>
+        <div class="container-mt-5">
             <div class="row">
-                <div class="col-6 mb-3">
-                    <label for="title">Title of the Book</label>
-                    <input type="text" name="title" placeholder="Title">
-                </div>  
+                <nav>
+                    <ul>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </nav>
 
-                <div class="col-6 mb-3">
-                    <label for="yearPublication">Year of Publication</label>
-                    <input type="text" name="yearPublication" placeholder="Year Publication">
-                </div>
+                <div class="mx-auto" id="caja">
+                <form id="formNewBook" class="rounded border p-3" method="POST" enctype="multipart/form-data">
+                    <h1 class="mb-3 text-center bg-warning text-light rounded p-2">Adds a New Book</h1>
+                        <div class="row">
+                            <div class="col col-md-6 col-sm-12 mb-3">
+                                <label for="title" class="form-label">Title of the Book</label>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                            </div>  
+                            
+                            <div class="col col-md-6 col-sm-12 mb-3">
+                                <label for="yearPublication" class="form-label">Year of Publication</label>
+                                <input type="text" name="yearPublication" id="yearPublication" class="form-control" placeholder="Year Publication">
+                            </div>
+                        </div>    
+                            
+                        <div class="row">
+                            <div class="col col-md-6 col-sm-12 mb-3">
+                                <label for="genreId" class="form-label">Genre</label>
+                                <select name="genreId" id="genre">
+                                <option value="">Select Genre</option>
+                                <option value="6520b9bab7c05aac0d42915e">Novela</option>
+                                <option value="6520ba43b7c05aac0d429160">Policial</option>
+                                <option value="6520ba5fb7c05aac0d429162">Dramatico</option>
+                                </select>
+                            </div>
 
-                <div class="col-6 mb-3">
-                    <label for="genreId">Genre"></label>
-                    <select name="genreId">
-                        <option value="">Select Genre</option>
-                        <option value="6520b9bab7c05aac0d42915e">Novela</option>
-                        <option value="6520ba43b7c05aac0d429160">Policial</option>
-                        <option value="6520ba5fb7c05aac0d429162">Dramatico</option>
-                    </select>
-                </div>
-
-                <div class="col-6 mb-3">
-                    <label for="formFile" class="form-label">Cover Page</label>
-                    <input class="form-control" name="coverPage" type="file" id="Cover Page">
-                </div>
+                            <div class="col col-md-6 col-sm-12 mb-3">
+                                <label for="authorId">Author</label>
+                                <select name="authorId" id="author">
+                                    <option value="">Select Author</option>
+                                    <option value="6521c8ecfc6e20670994439d">Julio Verne</option>
+                                </select>
+                            </div>
+                        </div>
                 
-                <div class="col-6 mb-3">
-                    <label for="authorId">Author</label>
-                    <select name="authorId">
-                        <option value="">Select Author</option>
-                        <option value="6521c8ecfc6e20670994439d">Julio Verne</option>
-                    </select>
-                </div>
-        
-                <div>
-                    <button type="submit" class="btn btn-warning">Submit</button>     
+                        <div class="row">
+                            <div class="col col-md-6 col-sm-12 mb-3">
+                                <label for="formFile" class="form-label">Cover Page</label>
+                                <input class="form-control" name="coverPage" id="coverPage" type="file" id="coverPage">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="btn btn-warning">Publicar</button>     
+                        </div>
+                </form>
                 </div>
             </div>
-        </div>
-    </form>
 
+        </div>
 
     
-    <script src=""></script>
+    <script src="/js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

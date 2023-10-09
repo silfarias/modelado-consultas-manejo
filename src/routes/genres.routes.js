@@ -1,11 +1,14 @@
 import { Router } from "express";
-import { getAllGenres, newGenre } from "../controllers/genres.controllers.js";
+import { booksByGenre, getAllGenres, newGenre } from "../controllers/genres.controllers.js";
 const genresRouter = Router();
 
 //obtain all literary genres
-genresRouter.get("/Allgenres", getAllGenres);
+genresRouter.get("/", getAllGenres);
 
 //add new literary genre
-genresRouter.post("/newGenre", newGenre);
+genresRouter.post("/", newGenre);
+
+
+genresRouter.get('/booksOfgenre/:id', booksByGenre);
 
 export { genresRouter };
