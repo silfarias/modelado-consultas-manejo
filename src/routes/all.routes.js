@@ -1,9 +1,11 @@
 import { Router } from "express";
 const allRouter = Router();
-import { home } from "../controllers/views.controller.js";
+import { newBook, listBooks, newAuthor } from "../controllers/views.controller.js";
 
 
-allRouter.get('/', home)
+allRouter.get('/', listBooks);
+allRouter.get('/newBook', newBook);
+allRouter.get('/newAuthor', newAuthor);
 
 
 export { allRouter };

@@ -1,7 +1,4 @@
 import { Book } from "../models/Book.js";
-import { Author } from "../models/Author.js";
-import { Genre } from "../models/Genre.js";
-
 
 // Create book
 export const newBook = async (req, res) => {
