@@ -112,6 +112,7 @@ export const listOfBooks = async (req, res) => {
       .populate('author', 'firstName lastName');
     const list = books.map((book) => ({
       title: book.title,
+      yearPublication: book.yearPublication,
       genre: book.genre.name, 
       author: `${book.author.firstName} ${book.author.lastName}`
     }));
