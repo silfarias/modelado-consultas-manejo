@@ -9,7 +9,7 @@ fileRouter.post("/upload", (req, res) => {
     } 
 
     let file = req.files.archivo;
-    let path = `/public/uploads/${file.name}`;
+    let path = `public/uploads/${file.name}`;
     console.log(path)
 
     file.mv(path, (err) => {

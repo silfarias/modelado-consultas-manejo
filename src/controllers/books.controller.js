@@ -7,16 +7,15 @@ import { Genre } from "../models/Genre.js";
 export const newBook = async (req, res) => {
   try {
     const { title, yearPublication, genre, author } = req.body;
-    const { coverPage } = req.files;
 
     if (!req.files || !(req.files).length === 0) {
       return res.status(400).json({ message: 'No coverPage file was uploaded' });
     }
 
-    const coverPageFile = req.files.coverPage;
-    const uploadPath = `./public/uploads/${coverPageFile.name}`;
+    const file = req.files.archivo;
+    const path = `public/uploads/${file.name}`;
 
-    coverPageFile.mv(uploadPath, async (err) => {
+    file.mv(path, async (err) => {
       if (err) {
         console.log(err);
         return res.status(500).json({ message: 'Error when uploading the cover page', error: err });
@@ -25,7 +24,7 @@ export const newBook = async (req, res) => {
       const newBook = new Book({
         title,
         yearPublication,
-        coverPage: uploadPath,
+        coverPage: path,
         genre,
         author
       });
