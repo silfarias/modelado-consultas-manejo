@@ -12,6 +12,10 @@ export const newBook = async (req, res) => {
       return res.status(400).json({ message: 'No coverPage file was uploaded' });
     }
 
+    if(!genre || !author) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
+
     const file = req.files.archivo;
     const path = `public/uploads/${file.name}`;
 
@@ -39,17 +43,6 @@ export const newBook = async (req, res) => {
     res.status(500).json({ message: 'error when creating the book', error })
   }  
 };
-
-// Create book without fileupload
-export const createBook = async (req, res) => {
-  try {
-    const book = new Book(req.body)
-    await book.save()
-    res.status(201).json({ message: "Book created successfully", book })
-  } catch (error) {
-    res.status(500).json({ message: 'error when creating the book', error })
-  }
-}
 
 // Delete book
 export const deleteBook = async (req, res) => {
@@ -118,12 +111,12 @@ export const getBook = async (req, res) => {
 export const listOfBooks = async (req, res) => {
   try {
     const books = await Book.find()
-      .populate('genre', 'name')
-      .populate('author', 'firstName lastName'); 
+      .populate('genre', 'name') 
+      .populate('author', 'firstName lastName');
     const list = books.map((book) => ({
       title: book.title,
-      genre: book.genre.name,
-      author: `${book.author.firstName} ${book.author.lastName}`,
+      genre: book.genre.name, 
+      author: `${book.author.firstName} ${book.author.lastName}`
     }));
 
     res.status(200).json(list);
