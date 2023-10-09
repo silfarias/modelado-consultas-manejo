@@ -9,6 +9,6 @@ genresRouter.get("/", getAllGenres);
 genresRouter.post("/", newGenre);
 
 
-genresRouter.get('/booksOfgenre/:id', booksByGenre);
+genresRouter.get('/booksofgenre/:id', booksByGenre);
 
 export { genresRouter };

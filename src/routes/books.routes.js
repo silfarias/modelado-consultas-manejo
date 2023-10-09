@@ -5,7 +5,7 @@ import { deleteBook, getAllBooks, getBook, listOfBooks, newBook, updateBook } fr
 
 booksRouter.get('/', listOfBooks );
 
-booksRouter.get('/getAllBooks', getAllBooks )
+booksRouter.get('/getbooks', getAllBooks )
 
 booksRouter.get('/:id', getBook );
 
