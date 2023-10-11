@@ -2,13 +2,14 @@ import { Router } from "express";
 import { booksByGenre, getAllGenres, newGenre } from "../controllers/genres.controllers.js";
 const genresRouter = Router();
 
-//obtain all literary genres
+
+//Obtener todos los generos
 genresRouter.get("/", getAllGenres);
 
-//add new literary genre
+//Crear un genero
 genresRouter.post("/", newGenre);
 
-
+//Cuantos libros hay por género
 genresRouter.get('/booksofgenre/:id', booksByGenre);
 
 export { genresRouter };

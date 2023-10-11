@@ -1,7 +1,7 @@
 import { Genre } from "../models/Genre.js";
 import { Book } from "../models/Book.js";
 
-// Create genre
+//Crear un genero
 export const newGenre = async (req, res) => {
     try {
         const genre = new Genre({
@@ -16,7 +16,7 @@ export const newGenre = async (req, res) => {
     }
 };
 
-// Get all genres
+//Obtener todos los generos
 export const getAllGenres = async (req, res) => {
     try {
         const genres = await Genre.find()
@@ -27,7 +27,7 @@ export const getAllGenres = async (req, res) => {
 }
 
 // Agrupar libros por género
-// Cauntos libros hay en cada categoria
+// Cuantos libros hay en cada categoria
 export const booksByGenre = async (req, res) => {
     const { id } = req.params
     try {

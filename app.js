@@ -1,3 +1,4 @@
+//importaciones
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
@@ -8,13 +9,14 @@ import 'dotenv/config';
 import 'ejs';
 
 
-//Routes
+//Database
 import { connectDB } from './src/config/database.js';
 
+//Routes
 import { authorsRouter } from './src/routes/authors.routes.js';
 import { booksRouter } from './src/routes/books.routes.js';
 import { genresRouter } from './src/routes/genres.routes.js';
-import { allRouter } from './src/routes/all.routes.js';
+import { viewsRouter } from './src/routes/views.routes.js';
 import { fileRouter } from './src/routes/file.routes.js';
 
 
@@ -52,7 +54,7 @@ const port = process.env.PORT || 3000
 app.use('/api/authors', authorsRouter)
 app.use('/api/genres', genresRouter)
 app.use('/api/books', booksRouter)
-app.use('/', allRouter)
+app.use('/', viewsRouter)
 app.use('/', fileRouter)
 
 app.listen(port, () => {
