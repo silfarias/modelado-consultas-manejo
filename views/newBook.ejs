@@ -12,22 +12,22 @@
             <div class="row">
                 <div class="row mb-2">
                     <div class="col-md-5 mt-3 ml-3">
-                        <a href="/" id="btnRegresar" class="btn btn-sm btn-warning">Regresar</a>
+                        <a href="/" id="btnRegresar" class="btn btn-sm btn-warning border-black">Regresar</a>
                     </div>
                 </div>
 
                 <div class="mx-auto" id="caja">
-                <form id="formNewBook" action="/api/books" class="rounded border p-3" method="POST" enctype="multipart/form-data">
-                    <h1 class="mb-3 text-center bg-warning text-light rounded p-2">Publica un Nuevo Libro</h1>
+                <form id="formNewBook" action="/api/books" class=" border-black border-rounded rounded-3 rounded border p-3" method="POST" enctype="multipart/form-data">
+                    <h1 class="mb-3 text-center bg-warning text-black rounded p-2">Publica un Nuevo Libro</h1>
                         <div class="row">
                             <div class="col col-md-6 col-sm-12 mb-3">
                                 <label for="title" class="form-label">Title of the Book</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                                <input type="text" class="form-control border-black" name="title" id="title" placeholder="Title">
                             </div>  
                             
                             <div class="col col-md-6 col-sm-12 mb-3">
                                 <label for="yearPublication" class="form-label">Year of Publication</label>
-                                <input type="text" name="yearPublication" id="yearPublication" class="form-control" placeholder="Year Publication">
+                                <input type="text" name="yearPublication" id="yearPublication" class="form-control border-black" placeholder="Year Publication">
                             </div>
                         </div>    
                             
@@ -60,12 +60,12 @@
                         <div class="row">
                             <div class="col col-md-6 col-sm-12 mb-3">
                                 <label for="archivo" class="form-label">Cover Page</label>
-                                <input class="form-control" name="archivo" id="coverPage" type="file">
+                                <input class="form-control border-black" name="archivo" id="coverPage" type="file">
                             </div>
                         </div>
                         
                         <div>
-                            <button type="submit" class="btn btn-warning">Publicar</button>     
+                            <button type="submit" class="btn btn-warning border-black">Publicar</button>     
                         </div>
                 </form>
                 </div>

@@ -12,34 +12,34 @@
             <div class="row">
                 <div class="row mb-2">
                     <div class="col-md-5 mt-3 ml-3">
-                        <a href="/" id="btnRegresar" class="btn btn-sm btn-warning">Regresar</a>
+                        <a href="/" id="btnRegresar" class="btn btn-sm btn-warning border-black">Regresar</a>
                     </div>
                 </div>
 
                 <div class="mx-auto" id="caja">
-                <form id="formNewAuthor" action="/api/authors" class="rounded border p-3" method="POST" enctype="multipart/form-data">
-                    <h1 class="mb-3 text-center bg-warning text-light rounded p-2">Agrega un nuevo Autor</h1>
+                <form id="formNewAuthor" action="/api/authors" class="border-black border-rounded rounded-3 border p-3" method="POST" enctype="multipart/form-data">
+                    <h1 class="mb-3 text-center bg-warning text-black rounded p-2">Agrega un nuevo Autor</h1>
                         <div class="row">
                             <div class="col col-md-6 col-sm-12 mb-3">
                                 <label for="firstName" class="form-label">Firstname</label>
-                                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name">
+                                <input type="text" class="form-control border-black"  name="firstName" id="firstName" placeholder="First Name">
                             </div>  
                             
                             <div class="col col-md-6 col-sm-12 mb-3">
                                 <label for="lastName" class="form-label">Lastname</label>
-                                <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Year Publication">
+                                <input type="text" name="lastName" id="lastName" class="form-control border-black" placeholder="Year Publication">
                             </div>
                         </div>    
                             
                         <div class="row">
                             <div class="col col-md-12 col-sm-12 mb-3">
                                 <label for="biography" class="form-label">Biography</label>
-                                <input type="text" name="biography" id="biography" class="form-control" placeholder="Biography">
+                                <input type="text" name="biography" id="biography" class="form-control border-black" placeholder="Biography">
                             </div>
                         </div>
                         
                         <div>
-                            <button type="submit" class="btn btn-warning">Agregar</button>     
+                            <button type="submit" class="btn btn-warning border-black">Agregar</button>     
                         </div>
                 </form>
                 </div>
